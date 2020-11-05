@@ -10,8 +10,8 @@ VOLUME ["/root"]
 WORKDIR /usr/src/app
 
 COPY *.json ./
-COPY *.js /
-COPY .env /
+COPY *.js ./
+COPY .env ./
 
 RUN npm install
 
