@@ -147,7 +147,7 @@ if (!fs.existsSync('./tmp/')) {
 let telegram = null;
 
 // Are we on Heroku?
-if (process.env.PORT && !isNaN(process.env.PORT)) {
+/*if (process.env.PORT && !isNaN(process.env.PORT)) {
 	if (process.env.APPURL) {
 		telegram = new TelegramBot(process.env.TELEGRAMKEY, {
 			webHook: {
@@ -166,11 +166,12 @@ if (process.env.PORT && !isNaN(process.env.PORT)) {
             }
         });
     }
-} else {
+} else {*/
     telegram = new TelegramBot(process.env.TELEGRAMKEY, {
-        polling: true, baseApiUrl: process.env.BASEAPIURL
+		baseApiUrl: process.env.BASEAPIURL,
+		polling: true
     }); // Polling so we don't have to deal with NAT
-}
+//}
 
 telegram.getMe().then(function(me) {
     console.log('[Telegram] Telegram connection established. Logged in as:', me.username);
