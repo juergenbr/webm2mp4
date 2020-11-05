@@ -168,7 +168,7 @@ if (process.env.PORT && !isNaN(process.env.PORT)) {
     }
 } else {
     telegram = new TelegramBot(process.env.TELEGRAMKEY, {
-        polling: true
+        polling: true, baseApiUrl: process.env.BASEAPIURL
     }); // Polling so we don't have to deal with NAT
 }
 

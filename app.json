@@ -15,6 +15,10 @@
     "APPURL": {
       "description": "Application URL is needed for webhook. Otherwise will work in polling mode and sleep much.",
       "value": "https://%insert_app_name%.herokuapp.com:443"
+    },
+    "BASEAPIURL": {
+      "description": "Base Url of Telegram API.",
+      "value": "https://api.telegram.org"
     }
   }
 }
