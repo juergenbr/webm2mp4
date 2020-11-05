@@ -23,7 +23,7 @@ function initListeners(username) {
 	// https://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
 	username = username.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 	console.log('API base URL: ', process.env.BASEAPIURL);
-	console.log('API base URL in telegram: ',telegram.config.baseApiUrl);
+	console.log('Telegram config: ', telegram.config);
 	// These commands are required to have responses by the Telegram API 
 	telegram.onText(RegExp('/start(?:@' + username + ')?$', 'i'), function(msg, match) {
 		console.log('[webm2mp4] New private chat started with', msg.from);
