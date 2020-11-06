@@ -53,14 +53,14 @@ function initListeners(username) {
 
         r.on('end', function () {
 			console.log('Starting conversion of file', filename);
-            ffmpeg(filename)
+			try{
+				ffmpeg(filename)
                 .output(filename + '.mp4')
                 .outputOptions('-strict -2') // Needed since axc is "experimental"
                 .on('end', () => {
                     // Cleanup
                     fs.unlink(filename, (e) => {
                         if (e) {
-							telegram.sendMessage(msg.chat.id, 'Sorry, conversion failed with error ', e);
                             console.error(e);
                         }
                     });
@@ -88,6 +88,12 @@ function initListeners(username) {
                     });
                 })
                 .run();
+			}
+			catch(e){
+				telegram.sendMessage(msg.chat.id, 'Sorry, conversion failed with error ', e);
+                console.error(e);
+			}
+			
 		});
 	});
 
