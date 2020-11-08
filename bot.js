@@ -27,12 +27,12 @@ function initListeners(username) {
 	// These commands are required to have responses by the Telegram API 
 	telegram.onText(RegExp('/start(?:@' + username + ')?$', 'i'), function(msg, match) {
 		console.log('[webm2mp4] New private chat started with', msg.from);
-		telegram.sendMessage(msg.chat.id, 'Hello! Upload an WebM for me to convert it to a MP4.');
+		telegram.sendMessage(msg.chat.id, 'Hello! Send a .webm URL for me to convert it to a MP4.');
 	});
 
 	telegram.onText(RegExp('/help(?:@' + username + ')?$', 'i'), function(msg, match) {
 		console.log('[webm2mp4] Help command used by', msg.from);
-		telegram.sendMessage(msg.chat.id, 'Hello! Upload an WebM for me to convert it to a MP4. I can also be added to group chats to automatically convert WebMs.');
+		telegram.sendMessage(msg.chat.id, 'Hello! Send a .webm URL for me to convert it to a MP4. I can also be added to group chats to automatically convert WebMs.');
 	});
 
 	telegram.onText(new RegExp('(https?:\\/\\/[^\\s]+.webm)'), function (msg, match) {
